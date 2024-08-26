@@ -15,15 +15,15 @@ Parameters:
   MyKeyName:
     Description: Please enter your key pair name without .pem
     Type: AWS::EC2::KeyPair::KeyName
-    Default: rafe-lesson
+    
   MyVPC:
     Description: VPC Id of your existing account
     Type: AWS::EC2::VPC::Id
-    Default: vpc-f52d178f
+    
   Subnets:
     Description:  Please select your subnets used by ALB
     Type: List<AWS::EC2::Subnet::Id>
-    Default: subnet-077c9758,subnet-3ccd235a,subnet-c41ba589,subnet-ed49bccc
+    
 
 Resources:
   MyALBSecurityGroup:
@@ -58,7 +58,7 @@ Resources:
     Type: AWS::EC2::LaunchTemplate
     Properties:
       LaunchTemplateData:
-        ImageId: ami-0c101f26f147fa7fd
+        ImageId: ami-066784287e358dad1
         InstanceType: t2.micro
         KeyName: !Ref MyKeyName
         SecurityGroupIds:
@@ -72,7 +72,7 @@ Resources:
                 dnf install git python3-pip -y
                 cd /home/ec2-user             
                 echo "${MyRDSURI}" > /home/ec2-user/dbserver.endpoint
-                git clone https://bluehackrafestefano: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@github.com/bluehackrafestefano/Project-004-Phonebook-Application_2-08.git app
+                git clone https://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@github.com/MustafaYagci/my-private-phonebook.git app
                 cd app
                 pip install -r requirements.txt
                 python3 phonebook-app.py
